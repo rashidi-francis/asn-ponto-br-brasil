@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
@@ -7,7 +6,6 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 60) {
@@ -23,9 +21,8 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Serviços", href: "#servicos" },
+    { name: "IA em Ação", href: "#demo" },
     { name: "Depoimentos", href: "#depoimentos" },
-    { name: "Blog", href: "#blog" },
-    { name: "Contato", href: "#contato" },
   ];
 
   return (
@@ -61,12 +58,12 @@ const Navbar = () => {
             </a>
           ))}
           <a 
-            href="https://chat.ajudoseunegocio.com.br/" 
+            href="https://api.whatsapp.com/send/?phone=5511930500397&text=Olá,%20vim%20do%20site%20e%20gostaria%20de%20falar%20sobre%20um%20projeto"
             target="_blank"
             rel="noopener noreferrer"
             className="neo-btn px-5 py-2 rounded-lg bg-primary text-black font-medium hover:bg-primary/90"
           >
-            Teste IA Grátis
+            Fale Conosco
           </a>
         </div>
 
@@ -103,13 +100,13 @@ const Navbar = () => {
           ))}
           <div className="flex flex-col space-y-4 w-full max-w-xs">
             <a 
-              href="https://chat.ajudoseunegocio.com.br/" 
+              href="https://api.whatsapp.com/send/?phone=5511930500397&text=Olá,%20vim%20do%20site%20e%20gostaria%20de%20falar%20sobre%20um%20projeto"
               target="_blank"
               rel="noopener noreferrer"
               className="neo-btn py-3 text-center w-full rounded-lg bg-primary text-black font-medium hover:bg-primary/90"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Teste IA Grátis
+              Fale Conosco
             </a>
           </div>
         </div>
