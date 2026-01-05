@@ -1,41 +1,40 @@
-
 import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Amanda Silva",
-    role: "CEO, Tech Solutions",
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
-    content: "A IA para WhatsApp da Ajudo Seu Negócio revolucionou nosso atendimento! Automatizamos 80% das conversas e aumentamos as vendas em 200%. A equipe fica livre para focar em casos complexos.",
-    rating: 5
-  },
-  {
-    name: "Ricardo Almeida",
-    role: "Fundador, Almeida Fitness",
+    name: "Carlos Eduardo",
+    role: "CEO, LogTech Solutions",
     image: "https://randomuser.me/api/portraits/men/32.jpg",
-    content: "As campanhas de tráfego pago que a equipe criou trouxeram resultados incríveis! Reduzimos o custo por lead em 60% e triplicamos as matrículas na academia em apenas 2 meses.",
+    content: "A equipe desenvolveu um sistema de gestão completo para nossa empresa. A integração com APIs de pagamento e ERPs foi impecável. Reduzimos 60% do tempo operacional!",
     rating: 5
   },
   {
-    name: "Juliana Costa",
-    role: "Diretora de Marketing, JC Cosméticos",
-    image: "https://randomuser.me/api/portraits/women/68.jpg",
-    content: "A gestão de Social Media transformou nossa marca! O engajamento cresceu 300%, criamos uma comunidade fiel e as vendas pelo Instagram dispararam. Conteúdo de altíssima qualidade!",
+    name: "Fernanda Lima",
+    role: "Diretora, E-commerce ModaPlus",
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    content: "Nosso e-commerce ficou muito mais rápido e profissional. O dashboard de vendas em tempo real mudou nossa forma de tomar decisões. Performance incrível!",
     rating: 5
   },
   {
-    name: "Fernando Mendes",
-    role: "Proprietário, Café Cultura",
+    name: "Roberto Nascimento",
+    role: "Fundador, ClinicaGest",
     image: "https://randomuser.me/api/portraits/men/75.jpg",
-    content: "A IA no WhatsApp atende nossos clientes 24/7 com agilidade impressionante. As reservas automáticas aumentaram 150% e a satisfação dos clientes melhorou significativamente!",
+    content: "O sistema de agendamento com IA que desenvolveram para nossa clínica é excepcional. Automatizamos todo o atendimento no WhatsApp e triplicamos a eficiência.",
     rating: 5
   },
   {
-    name: "Carla Oliveira",
-    role: "Gerente, Boutique Elegance",
-    image: "https://randomuser.me/api/portraits/women/89.jpg",
-    content: "O investimento em tráfego pago e Social Media foi o melhor que já fizemos! ROI de 450%, nosso e-commerce explodiu e criamos uma presença digital muito forte no mercado.",
+    name: "Mariana Costa",
+    role: "Gerente de TI, Grupo Imobiliário SP",
+    image: "https://randomuser.me/api/portraits/women/68.jpg",
+    content: "A plataforma SaaS que criaram para gestão de imóveis superou todas as expectativas. Interface moderna, segura e escalável. Recomendo muito!",
+    rating: 5
+  },
+  {
+    name: "André Oliveira",
+    role: "CTO, FinanceiroApp",
+    image: "https://randomuser.me/api/portraits/men/52.jpg",
+    content: "Integrações complexas com gateways de pagamento e bancos foram resolvidas com maestria. A equipe entende de verdade sobre segurança e escalabilidade.",
     rating: 5
   }
 ];
@@ -97,7 +96,6 @@ const Testimonials = () => {
     );
   };
 
-  // Touch handling
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
     setIsAutoplay(false);
@@ -119,13 +117,11 @@ const Testimonials = () => {
     
     touchStartX.current = null;
     
-    // Resume autoplay after 5 seconds
     setTimeout(() => {
       setIsAutoplay(true);
     }, 5000);
   };
 
-  // Scroll to active testimonial
   useEffect(() => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
@@ -138,7 +134,6 @@ const Testimonials = () => {
     }
   }, [activeIndex]);
 
-  // Autoplay
   useEffect(() => {
     if (isAutoplay) {
       autoplayTimerRef.current = setInterval(() => {
@@ -155,11 +150,9 @@ const Testimonials = () => {
     };
   }, [isAutoplay]);
 
-  // Pause autoplay when user interacts
   const pauseAutoplay = () => {
     setIsAutoplay(false);
     
-    // Resume autoplay after 5 seconds
     setTimeout(() => {
       setIsAutoplay(true);
     }, 5000);
@@ -167,7 +160,6 @@ const Testimonials = () => {
 
   return (
     <section id="depoimentos" className="relative py-24 overflow-hidden">
-      {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-radial from-neon-purple/5 via-transparent to-transparent opacity-50"></div>
       
       <div className="container mx-auto px-6">
@@ -183,12 +175,11 @@ const Testimonials = () => {
             dizem
           </h2>
           <p className="text-gray-300">
-            Veja como ajudamos empresas como a sua a alcançarem resultados extraordinários.
+            Veja como ajudamos empresas a transformar suas operações com tecnologia sob medida.
           </p>
         </div>
 
         <div className="relative">
-          {/* Navigation Buttons */}
           <div className="flex justify-between absolute top-1/2 -translate-y-1/2 left-0 right-0 z-10 px-4">
             <button 
               onClick={() => {
@@ -212,7 +203,6 @@ const Testimonials = () => {
             </button>
           </div>
 
-          {/* Testimonials Carousel */}
           <div 
             ref={scrollContainerRef}
             className="flex overflow-x-scroll scrollbar-hidden gap-6 pb-8 px-4"
@@ -224,7 +214,6 @@ const Testimonials = () => {
             ))}
           </div>
 
-          {/* Pagination Dots */}
           <div className="flex justify-center gap-2 mt-8">
             {testimonials.map((_, index) => (
               <button

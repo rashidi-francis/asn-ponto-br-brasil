@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
+import DevServices from "@/components/DevServices";
 import Testimonials from "@/components/Testimonials";
 import Partners from "@/components/Partners";
-import Quiz from "@/components/Quiz";
-import BlogPreview from "@/components/BlogPreview";
 import ChatAsnDemo from "@/components/ChatAsnDemo";
-import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -44,7 +41,7 @@ const Index = () => {
         
         if (element) {
           window.scrollTo({
-            top: element.offsetTop - 80, // Adjust for navbar height
+            top: element.offsetTop - 80,
             behavior: 'smooth'
           });
         }
@@ -60,13 +57,10 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
-        <Services />
+        <DevServices />
+        <ChatAsnDemo />
         <Testimonials />
         <Partners />
-        <Quiz />
-        <BlogPreview />
-        <ChatAsnDemo />
-        <ContactForm />
       </main>
       <Footer />
 
